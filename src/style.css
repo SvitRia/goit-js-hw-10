@@ -1,0 +1,25 @@
+.box-img {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.box-text {
+    width: 600px;
+    font-size: 20px;
+    
+}
+
+.breed-select {
+    background-color: gray;
+    color: antiquewhite;
+}
+
+.visible {
+    visibility: visible;
+  }
+  
+  .not-visible {
+    visibility: hidden;
+  }
