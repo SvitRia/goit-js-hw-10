@@ -4,6 +4,8 @@ import { fetchBreeds, fetchCatByBreed } from "./cat-api";
 import { 
   refs
  } from "./refs"
+ import SlimSelect from 'slim-select';
+ import 'slim-select/dist/slimselect.css';
 
 axios.defaults.headers.common["x-api-key"] = "live_T4WrXyEMS0dHsryRbTc3mhjPUP8YW0IRvK4NEMVqVpBaMGCWQ7960NI93vKteYyR";
 
@@ -18,13 +20,17 @@ fetchBreeds()
     loaderText.classList.add("not-visible");
     selectBreeds.classList.replace("not-visible","visible");
     errorText.classList.replace("visible", "not-visible");
-    console.log(data);
+   
     const markup = data.map((breed) => {
        return `<option value=${breed.id}>${breed.name}</option>`;
     })
     .join("");
-   
-  selectBreeds.innerHTML = markup;
+   const firstEl = `<option value="">--select breed--</option>`;
+ 
+  selectBreeds.innerHTML = firstEl + markup;
+  new SlimSelect({
+    select:'#select-js', 
+  });
   })
   .catch((err) => {
     errorText.classList.replace("not-visible","visible");
